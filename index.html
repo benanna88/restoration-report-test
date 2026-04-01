@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restoration Report Form - V1</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --border: #d8dee4;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --danger: #b91c1c;
+      --success: #15803d;
+    }* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1, h2, h3 {
+  margin: 0 0 10px;
+}
+
+p {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 700px) {
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input, select, textarea, button {
+  font: inherit;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover { background: var(--accent-dark); }
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: var(--text);
+}
+
+.btn-danger {
+  background: #fee2e2;
+  color: var(--danger);
+  border: 1px solid #fecaca;
+}
+
+.btn-success {
+  background: #dcfce7;
+  color: var(--success);
+  border: 1px solid #bbf7d0;
+}
+
+.room-card, .photo-item {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 12px;
+  background: #fafafa;
+}
+
+.photo-preview {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: 1px solid var(--border);
+}
+
+.summary-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 12px;
+  white-space: pre-wrap;
+  color: #1e3a8a;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Restoration Report Form - V1</h1>
+      <p>First working prototype for job details, time helpers, room sections, photo tagging, and report preview. PDF export can be added in the next version.</p>
+    </div><form id="reportForm">
+  <div class="card">
+    <h2>1. Job Details</h2>
+    <div class="grid grid-2">
+      <div>
+        <label for="jobNumber">Job Number</label>
+        <input id="jobNumber" name="jobNumber" type="text" placeholder="e.g. WDR-1024" />
+      </div>
+      <div>
+        <label for="technician">Technician</label>
+        <input id="technician" name="technician" type="text" placeholder="Technician name" />
+      </div>
+      <div>
+        <label for="clientName">Client Name</label>
+        <input id="clientName" name="clientName" type="text" placeholder="Client name" />
+      </div>
+      <div>
+        <label for="address">Property Address</label>
+        <input id="address" name="address" type="text" placeholder="Job address" />
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2. Date and Time</h2>
+    <div class="grid grid-2">
+      <div>
+        <label for="reportDate">Report Date</label>
+        <input id="reportDate" name="reportDate" type="date" />
+      </div>
+      <div>
+        <label for="arrivalTime">Arrival Time</label>
+        <input id="arrivalTime" name="arrivalTime" type="time" />
+        <div class="button-row">
+          <button type="button" class="btn-secondary" onclick="adjustTime('arrivalTime', -60)">- 1 hr</button>
+          <button type="button" class="btn-secondary" onclick="adjustTime('arrivalTime', 60)">+ 1 hr</button>
+          <button type="button" class="btn-secondary" onclick="roundTime('arrivalTime')">Round to nearest hour</button>
+          <button type="button" class="btn-success" onclick="setNow('arrivalTime')">Now</button>
+        </div>
+      </div>
+      <div>
+        <label for="departureTime">Departure Time</label>
+        <input id="departureTime" name="departureTime" type="time" />
+        <div class="button-row">
+          <button type="button" class="btn-secondary" onclick="adjustTime('departureTime', -60)">- 1 hr</button>
+          <button type="button" class="btn-secondary" onclick="adjustTime('departureTime', 60)">+ 1 hr</button>
+          <button type="button" class="btn-secondary" onclick="roundTime('departureTime')">Round to nearest hour</button>
+          <button type="button" class="btn-success" onclick="setNow('departureTime')">Now</button>
+        </div>
+      </div>
+      <div>
+        <label for="causeOfLoss">Cause of Loss</label>
+        <input id="causeOfLoss" name="causeOfLoss" type="text" placeholder="e.g. burst flexi hose" />
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">
+      <h2>3. Rooms</h2>
+      <button type="button" class="btn-primary" onclick="addRoom()">Add Room</button>
+    </div>
+    <p>Add one room section for each affected area. Photos added within a room will stay grouped to that room.</p>
+    <div id="roomsContainer"></div>
+  </div>
+
+  <div class="card">
+    <h2>4. Overall Notes</h2>
+    <label for="overallNotes">General Notes</label>
+    <textarea id="overallNotes" name="overallNotes" placeholder="Overall job summary, actions taken, equipment installed, recommendations..."></textarea>
+  </div>
+
+  <div class="card">
+    <div class="button-row">
+      <button type="button" class="btn-primary" onclick="generatePreview()">Generate Report Preview</button>
+      <button type="reset" class="btn-danger">Reset Form</button>
+    </div>
+  </div>
+</form>
+
+<div class="card">
+  <h2>5. Report Preview</h2>
+  <p>This is a simple preview for testing the structure. Proper PDF export can be added next using a print stylesheet or a PDF library.</p>
+  <div id="reportPreview" class="summary-box">No preview generated yet.</div>
+</div>
+
+  </div>  <template id="roomTemplate">
+    <div class="room-card">
+      <div class="section-title">
+        <h3 class="room-heading">Room</h3>
+        <button type="button" class="btn-danger remove-room">Remove Room</button>
+      </div><div class="grid grid-2">
+    <div>
+      <label>Room Name</label>
+      <input type="text" class="room-name" placeholder="e.g. Bedroom 1" />
+    </div>
+    <div>
+      <label>Room Condition</label>
+      <input type="text" class="room-condition" placeholder="e.g. wet carpet, affected skirting" />
+    </div>
+  </div>
+
+  <div style="margin-top: 12px;">
+    <label>Room Notes</label>
+    <textarea class="room-notes" placeholder="Notes specific to this room..."></textarea>
+  </div>
+
+  <div style="margin-top: 12px;">
+    <div class="section-title">
+      <h3>Photos for this Room</h3>
+      <button type="button" class="btn-primary add-photo">Add Photo</button>
+    </div>
+    <div class="photo-list"></div>
+  </div>
+</div>
+
+  </template>  <template id="photoTemplate">
+    <div class="photo-item">
+      <div class="grid grid-2">
+        <div>
+          <label>Photo Type</label>
+          <select class="photo-type">
+            <option value="Damage photo">Damage photo</option>
+            <option value="Moisture reading">Moisture reading</option>
+            <option value="Equipment photo">Equipment photo</option>
+            <option value="General condition">General condition</option>
+          </select>
+        </div>
+        <div>
+          <label>Location in Room</label>
+          <input type="text" class="photo-location" placeholder="e.g. south wall, under vanity" />
+        </div>
+        <div>
+          <label>Reading / Value</label>
+          <input type="text" class="photo-reading" placeholder="e.g. 18.7% or leave blank" />
+        </div>
+        <div>
+          <label>Take / Upload Photo</label>
+          <input type="file" class="photo-file" accept="image/*" capture="environment" />
+        </div>
+      </div><div style="margin-top: 12px;">
+    <label>Photo Note</label>
+    <textarea class="photo-note" placeholder="Optional note about this photo..."></textarea>
+  </div>
+
+  <img class="photo-preview" style="display:none;" alt="Photo preview" />
+
+  <div class="button-row">
+    <button type="button" class="btn-danger remove-photo">Remove Photo</button>
+  </div>
+</div>
+
+  </template>  <script>
+    const roomsContainer = document.getElementById('roomsContainer');
+
+    function pad(num) {
+      return String(num).padStart(2, '0');
+    }
+
+    function setToday() {
+      const today = new Date();
+      document.getElementById('reportDate').value = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
+    }
+
+    function setNow(inputId) {
+      const now = new Date();
+      document.getElementById(inputId).value = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    }
+
+    function adjustTime(inputId, minutesToAdd) {
+      const input = document.getElementById(inputId);
+      if (!input.value) setNow(inputId);
+      const [hours, minutes] = input.value.split(':').map(Number);
+      let total = (hours * 60) + minutes + minutesToAdd;
+      total = ((total % 1440) + 1440) % 1440;
+      const newHours = Math.floor(total / 60);
+      const newMinutes = total % 60;
+      input.value = `${pad(newHours)}:${pad(newMinutes)}`;
+    }
+
+    function roundTime(inputId) {
+      const input = document.getElementById(inputId);
+      if (!input.value) setNow(inputId);
+      const [hours, minutes] = input.value.split(':').map(Number);
+      let totalMinutes = hours * 60 + minutes;
+      totalMinutes = Math.round(totalMinutes / 60) * 60;
+      totalMinutes = totalMinutes % 1440;
+      const newHours = Math.floor(totalMinutes / 60);
+      const newMinutes = totalMinutes % 60;
+      input.value = `${pad(newHours)}:${pad(newMinutes)}`;
+    }
+
+    function addRoom() {
+      const template = document.getElementById('roomTemplate');
+      const clone = template.content.cloneNode(true);
+      const roomEl = clone.querySelector('.room-card');
+      const roomNameInput = clone.querySelector('.room-name');
+      const roomHeading = clone.querySelector('.room-heading');
+      const addPhotoButton = clone.querySelector('.add-photo');
+      const photoList = clone.querySelector('.photo-list');
+      const removeRoomButton = clone.querySelector('.remove-room');
+
+      roomNameInput.addEventListener('input', () => {
+        roomHeading.textContent = roomNameInput.value.trim() || 'Room';
+      });
+
+      addPhotoButton.addEventListener('click', () => addPhoto(photoList));
+      removeRoomButton.addEventListener('click', () => roomEl.remove());
+
+      roomsContainer.appendChild(clone);
+    }
+
+    function addPhoto(photoList) {
+      const template = document.getElementById('photoTemplate');
+      const clone = template.content.cloneNode(true);
+      const photoEl = clone.querySelector('.photo-item');
+      const fileInput = clone.querySelector('.photo-file');
+      const imgPreview = clone.querySelector('.photo-preview');
+      const removeButton = clone.querySelector('.remove-photo');
+
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = event => {
+          imgPreview.src = event.target.result;
+          imgPreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      });
+
+      removeButton.addEventListener('click', () => photoEl.remove());
+      photoList.appendChild(clone);
+    }
+
+    function generatePreview() {
+      const output = [];
+      const value = id => document.getElementById(id).value.trim();
+
+      output.push(`RESTORATION REPORT`);
+      output.push(``);
+      output.push(`Job Number: ${value('jobNumber')}`);
+      output.push(`Technician: ${value('technician')}`);
+      output.push(`Client Name: ${value('clientName')}`);
+      output.push(`Property Address: ${value('address')}`);
+      output.push(`Report Date: ${value('reportDate')}`);
+      output.push(`Arrival Time: ${value('arrivalTime')}`);
+      output.push(`Departure Time: ${value('departureTime')}`);
+      output.push(`Cause of Loss: ${value('causeOfLoss')}`);
+      output.push(``);
+      output.push(`OVERALL NOTES`);
+      output.push(value('overallNotes') || '-');
+      output.push(``);
+      output.push(`ROOMS`);
+
+      const rooms = document.querySelectorAll('.room-card');
+      if (rooms.length === 0) {
+        output.push(`No rooms added.`);
+      }
+
+      rooms.forEach((room, index) => {
+        const roomName = room.querySelector('.room-name').value.trim() || `Room ${index + 1}`;
+        const condition = room.querySelector('.room-condition').value.trim();
+        const notes = room.querySelector('.room-notes').value.trim();
+        const photos = room.querySelectorAll('.photo-item');
+
+        output.push(``);
+        output.push(`${index + 1}. ${roomName}`);
+        output.push(`Condition: ${condition || '-'}`);
+        output.push(`Notes: ${notes || '-'}`);
+        output.push(`Photos:`);
+
+        if (photos.length === 0) {
+          output.push(`  - No photos added`);
+        }
+
+        photos.forEach((photo, photoIndex) => {
+          const type = photo.querySelector('.photo-type').value.trim();
+          const location = photo.querySelector('.photo-location').value.trim();
+          const reading = photo.querySelector('.photo-reading').value.trim();
+          const note = photo.querySelector('.photo-note').value.trim();
+          const fileName = photo.querySelector('.photo-file').files[0]?.name || 'No file selected';
+
+          output.push(`  ${photoIndex + 1}. ${type}`);
+          output.push(`     Location: ${location || '-'}`);
+          output.push(`     Reading: ${reading || '-'}`);
+          output.push(`     Note: ${note || '-'}`);
+          output.push(`     File: ${fileName}`);
+        });
+      });
+
+      document.getElementById('reportPreview').textContent = output.join('\n');
+    }
+
+    setToday();
+    addRoom();
+  </script></body>
+</html>
