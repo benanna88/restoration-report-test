@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,159 +15,261 @@
       --accent-dark: #1d4ed8;
       --danger: #b91c1c;
       --success: #15803d;
-    }* { box-sizing: border-box; }
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.4;
-}
+    * { box-sizing: border-box; }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 16px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+    }
 
-h1, h2, h3 {
-  margin: 0 0 10px;
-}
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
 
-p {
-  margin: 0 0 12px;
-  color: var(--muted);
-}
+    h1, h2, h3 {
+      margin: 0 0 10px;
+    }
 
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
 
-.grid {
-  display: grid;
-  gap: 12px;
-}
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
 
-.grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+    .grid {
+      display: grid;
+      gap: 12px;
+    }
 
-.grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-@media (max-width: 700px) {
-  .grid-2, .grid-3 {
-    grid-template-columns: 1fr;
-  }
-}
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
+    @media (max-width: 700px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
 
-input, select, textarea, button {
-  font: inherit;
-}
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
 
-input, select, textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: #fff;
-}
+    input, select, textarea, button {
+      font: inherit;
+    }
 
-textarea {
-  min-height: 90px;
-  resize: vertical;
-}
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+    }
 
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
 
-button {
-  border: none;
-  border-radius: 10px;
-  padding: 10px 14px;
-  cursor: pointer;
-}
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
 
-.btn-primary {
-  background: var(--accent);
-  color: white;
-}
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
 
-.btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
 
-.btn-secondary {
-  background: #e5e7eb;
-  color: var(--text);
-}
+    .btn-primary:hover { background: var(--accent-dark); }
 
-.btn-danger {
-  background: #fee2e2;
-  color: var(--danger);
-  border: 1px solid #fecaca;
-}
+    .btn-secondary {
+      background: #e5e7eb;
+      color: var(--text);
+    }
 
-.btn-success {
-  background: #dcfce7;
-  color: var(--success);
-  border: 1px solid #bbf7d0;
-}
+    .btn-danger {
+      background: #fee2e2;
+      color: var(--danger);
+      border: 1px solid #fecaca;
+    }
 
-.room-card, .photo-item {
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  padding: 12px;
-  margin-top: 12px;
-  background: #fafafa;
-}
+    .btn-success {
+      background: #dcfce7;
+      color: var(--success);
+      border: 1px solid #bbf7d0;
+    }
 
-.photo-preview {
-  display: block;
-  width: 100%;
-  max-width: 240px;
-  border-radius: 10px;
-  margin-top: 10px;
-  border: 1px solid var(--border);
-}
+    .room-card, .photo-item {
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 12px;
+      background: #fafafa;
+    }
 
-.summary-box {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-radius: 12px;
-  padding: 12px;
-  white-space: pre-wrap;
-  color: #1e3a8a;
-}
+    .photo-preview {
+      display: block;
+      width: 100%;
+      max-width: 240px;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 1px solid var(--border);
+    }
 
-.muted {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
+    .summary-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 12px;
+      color: #1e3a8a;
+    }
 
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
-}
+    .report-output {
+      background: white;
+      color: #111827;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
 
+    .report-output h1,
+    .report-output h2,
+    .report-output h3,
+    .report-output p,
+    .report-output ul {
+      margin-top: 0;
+    }
+
+    .report-output h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .report-output h2 {
+      font-size: 1.1rem;
+      margin: 22px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #dbeafe;
+    }
+
+    .report-output h3 {
+      font-size: 1rem;
+      margin: 18px 0 8px;
+    }
+
+    .report-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 20px;
+      margin-bottom: 16px;
+    }
+
+    .report-meta div {
+      padding: 6px 0;
+      border-bottom: 1px solid #eef2f7;
+    }
+
+    .report-photo-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .report-photo-item img {
+      display: block;
+      max-width: 100%;
+      max-height: 320px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .container {
+        max-width: none;
+        padding: 0;
+      }
+
+      form,
+      .card:first-child,
+      #reportPreviewNote {
+        display: none !important;
+      }
+
+      .card {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .report-output {
+        border: none;
+        border-radius: 0;
+        padding: 0;
+      }
+
+      button {
+        display: none !important;
+      }
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -174,123 +277,134 @@ button {
     <div class="card">
       <h1>Restoration Report Form - V1</h1>
       <p>First working prototype for job details, time helpers, room sections, photo tagging, and report preview. PDF export can be added in the next version.</p>
-    </div><form id="reportForm">
-  <div class="card">
-    <h2>1. Job Details</h2>
-    <div class="grid grid-2">
-      <div>
-        <label for="jobNumber">Job Number</label>
-        <input id="jobNumber" name="jobNumber" type="text" placeholder="e.g. WDR-1024" />
-      </div>
-      <div>
-        <label for="technician">Technician</label>
-        <input id="technician" name="technician" type="text" placeholder="Technician name" />
-      </div>
-      <div>
-        <label for="clientName">Client Name</label>
-        <input id="clientName" name="clientName" type="text" placeholder="Client name" />
-      </div>
-      <div>
-        <label for="address">Property Address</label>
-        <input id="address" name="address" type="text" placeholder="Job address" />
-      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h2>2. Date and Time</h2>
-    <div class="grid grid-2">
-      <div>
-        <label for="reportDate">Report Date</label>
-        <input id="reportDate" name="reportDate" type="date" />
-      </div>
-      <div>
-        <label for="arrivalTime">Arrival Time</label>
-        <input id="arrivalTime" name="arrivalTime" type="time" />
-        <div class="button-row">
-          <button type="button" class="btn-secondary" onclick="adjustTime('arrivalTime', -60)">- 1 hr</button>
-          <button type="button" class="btn-secondary" onclick="adjustTime('arrivalTime', 60)">+ 1 hr</button>
-          <button type="button" class="btn-secondary" onclick="roundTime('arrivalTime')">Round to nearest hour</button>
-          <button type="button" class="btn-success" onclick="setNow('arrivalTime')">Now</button>
+    <form id="reportForm">
+      <div class="card">
+        <h2>1. Job Details</h2>
+        <div class="grid grid-2">
+          <div>
+            <label for="jobNumber">Job Number</label>
+            <input id="jobNumber" name="jobNumber" type="text" placeholder="e.g. WDR-1024" />
+          </div>
+          <div>
+            <label for="technician">Technician</label>
+            <input id="technician" name="technician" type="text" placeholder="Technician name" />
+          </div>
+          <div>
+            <label for="clientName">Client Name</label>
+            <input id="clientName" name="clientName" type="text" placeholder="Client name" />
+          </div>
+          <div>
+            <label for="address">Property Address</label>
+            <input id="address" name="address" type="text" placeholder="Job address" />
+            <p class="muted" style="margin-top:6px;">Manual entry for now. Address autocomplete can be added later with a service like Google Places or Mapbox.</p>
+          </div>
         </div>
       </div>
-      <div>
-        <label for="departureTime">Departure Time</label>
-        <input id="departureTime" name="departureTime" type="time" />
-        <div class="button-row">
-          <button type="button" class="btn-secondary" onclick="adjustTime('departureTime', -60)">- 1 hr</button>
-          <button type="button" class="btn-secondary" onclick="adjustTime('departureTime', 60)">+ 1 hr</button>
-          <button type="button" class="btn-secondary" onclick="roundTime('departureTime')">Round to nearest hour</button>
-          <button type="button" class="btn-success" onclick="setNow('departureTime')">Now</button>
+
+      <div class="card">
+        <h2>2. Date and Time</h2>
+        <div class="grid grid-2">
+          <div>
+            <label for="reportDate">Report Date</label>
+            <input id="reportDate" name="reportDate" type="date" />
+          </div>
+          <div>
+            <label for="arrivalTime">Arrival Time</label>
+            <input id="arrivalTime" name="arrivalTime" type="time" />
+            <div class="button-row">
+              <button type="button" class="btn-secondary" onclick="adjustTime('arrivalTime', -60)">- 1 hr</button>
+              <button type="button" class="btn-secondary" onclick="adjustTime('arrivalTime', 60)">+ 1 hr</button>
+              <button type="button" class="btn-secondary" onclick="roundTime('arrivalTime')">Round to nearest hour</button>
+              <button type="button" class="btn-success" onclick="setNow('arrivalTime')">Now</button>
+            </div>
+          </div>
+          <div>
+            <label for="departureTime">Departure Time</label>
+            <input id="departureTime" name="departureTime" type="time" />
+            <div class="button-row">
+              <button type="button" class="btn-secondary" onclick="adjustTime('departureTime', -60)">- 1 hr</button>
+              <button type="button" class="btn-secondary" onclick="adjustTime('departureTime', 60)">+ 1 hr</button>
+              <button type="button" class="btn-secondary" onclick="roundTime('departureTime')">Round to nearest hour</button>
+              <button type="button" class="btn-success" onclick="setNow('departureTime')">Now</button>
+            </div>
+          </div>
+          <div>
+            <label for="causeOfLoss">Cause of Loss</label>
+            <input id="causeOfLoss" name="causeOfLoss" type="text" placeholder="e.g. burst flexi hose" />
+          </div>
         </div>
       </div>
-      <div>
-        <label for="causeOfLoss">Cause of Loss</label>
-        <input id="causeOfLoss" name="causeOfLoss" type="text" placeholder="e.g. burst flexi hose" />
+
+      <div class="card">
+        <div class="section-title">
+          <h2>3. Rooms</h2>
+          <button type="button" class="btn-primary" onclick="addRoom()">Add Room</button>
+        </div>
+        <p>Add one room section for each affected area. Photos added within a room will stay grouped to that room.</p>
+        <div id="roomsContainer"></div>
       </div>
+
+      <div class="card">
+        <h2>4. Overall Notes</h2>
+        <label for="overallNotes">General Notes</label>
+        <textarea id="overallNotes" name="overallNotes" placeholder="Overall job summary, actions taken, equipment installed, recommendations..."></textarea>
+      </div>
+
+      <div class="card">
+        <div class="button-row">
+          <button type="button" class="btn-secondary" onclick="fillExampleData()">Fill Example Data</button>
+          <button type="button" class="btn-primary" onclick="generatePreview()">Generate Report Preview</button>
+          <button type="reset" class="btn-danger">Reset Form</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="card">
+      <h2>5. Report Preview</h2>
+      <p>This preview now includes basic print formatting. Use the button below to open your browser print dialog and save the report as a PDF.</p>
+      <div class="button-row" style="margin-bottom:12px;">
+        <button type="button" class="btn-success" onclick="printReport()">Print / Save as PDF</button>
+      </div>
+      <div id="reportPreview" class="summary-box report-output">No preview generated yet.</div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="section-title">
-      <h2>3. Rooms</h2>
-      <button type="button" class="btn-primary" onclick="addRoom()">Add Room</button>
-    </div>
-    <p>Add one room section for each affected area. Photos added within a room will stay grouped to that room.</p>
-    <div id="roomsContainer"></div>
-  </div>
-
-  <div class="card">
-    <h2>4. Overall Notes</h2>
-    <label for="overallNotes">General Notes</label>
-    <textarea id="overallNotes" name="overallNotes" placeholder="Overall job summary, actions taken, equipment installed, recommendations..."></textarea>
-  </div>
-
-  <div class="card">
-    <div class="button-row">
-      <button type="button" class="btn-primary" onclick="generatePreview()">Generate Report Preview</button>
-      <button type="reset" class="btn-danger">Reset Form</button>
-    </div>
-  </div>
-</form>
-
-<div class="card">
-  <h2>5. Report Preview</h2>
-  <p>This is a simple preview for testing the structure. Proper PDF export can be added next using a print stylesheet or a PDF library.</p>
-  <div id="reportPreview" class="summary-box">No preview generated yet.</div>
-</div>
-
-  </div>  <template id="roomTemplate">
+  <template id="roomTemplate">
     <div class="room-card">
       <div class="section-title">
         <h3 class="room-heading">Room</h3>
         <button type="button" class="btn-danger remove-room">Remove Room</button>
-      </div><div class="grid grid-2">
-    <div>
-      <label>Room Name</label>
-      <input type="text" class="room-name" placeholder="e.g. Bedroom 1" />
-    </div>
-    <div>
-      <label>Room Condition</label>
-      <input type="text" class="room-condition" placeholder="e.g. wet carpet, affected skirting" />
-    </div>
-  </div>
+      </div>
 
-  <div style="margin-top: 12px;">
-    <label>Room Notes</label>
-    <textarea class="room-notes" placeholder="Notes specific to this room..."></textarea>
-  </div>
+      <div class="grid grid-2">
+        <div>
+          <label>Room Name</label>
+          <input type="text" class="room-name" placeholder="e.g. Bedroom 1" />
+        </div>
+        <div>
+          <label>Room Condition</label>
+          <input type="text" class="room-condition" placeholder="e.g. wet carpet, affected skirting" />
+        </div>
+      </div>
 
-  <div style="margin-top: 12px;">
-    <div class="section-title">
-      <h3>Photos for this Room</h3>
-      <button type="button" class="btn-primary add-photo">Add Photo</button>
+      <div style="margin-top: 12px;">
+        <label>Room Notes</label>
+        <textarea class="room-notes" placeholder="Notes specific to this room..."></textarea>
+      </div>
+
+      <div style="margin-top: 12px;">
+        <div class="section-title">
+          <h3>Photos for this Room</h3>
+          <button type="button" class="btn-primary add-photo">Add Photo</button>
+        </div>
+        <div class="photo-list"></div>
+      </div>
     </div>
-    <div class="photo-list"></div>
-  </div>
-</div>
+  </template>
 
-  </template>  <template id="photoTemplate">
+  <template id="photoTemplate">
     <div class="photo-item">
       <div class="grid grid-2">
         <div>
@@ -311,22 +425,31 @@ button {
           <input type="text" class="photo-reading" placeholder="e.g. 18.7% or leave blank" />
         </div>
         <div>
-          <label>Take / Upload Photo</label>
-          <input type="file" class="photo-file" accept="image/*" capture="environment" />
+          <label>Take New Photo</label>
+          <input type="file" class="photo-file camera-file" accept="image/*" capture="environment" />
         </div>
-      </div><div style="margin-top: 12px;">
-    <label>Photo Note</label>
-    <textarea class="photo-note" placeholder="Optional note about this photo..."></textarea>
-  </div>
+        <div>
+          <label>Upload Existing Photo</label>
+          <input type="file" class="photo-file upload-file" accept="image/*" />
+        </div>
+      </div>
 
-  <img class="photo-preview" style="display:none;" alt="Photo preview" />
+      <div style="margin-top: 12px;">
+        <label>Photo Note</label>
+        <textarea class="photo-note" placeholder="Optional note about this photo..."></textarea>
+      </div>
 
-  <div class="button-row">
-    <button type="button" class="btn-danger remove-photo">Remove Photo</button>
-  </div>
-</div>
+      <img class="photo-preview" style="display:none;" alt="Photo preview" />
 
-  </template>  <script>
+      <div class="button-row">
+        <button type="button" class="btn-secondary mark-unused">Mark as Not Needed</button>
+        <button type="button" class="btn-danger remove-photo">Remove Photo</button>
+      </div>
+      <p class="muted unused-status" style="display:none; margin-top:8px; color:#92400e;">Marked as not needed. It will stay in the report data but be clearly flagged.</p>
+    </div>
+  </template>
+
+  <script>
     const roomsContainer = document.getElementById('roomsContainer');
 
     function pad(num) {
@@ -390,19 +513,41 @@ button {
       const template = document.getElementById('photoTemplate');
       const clone = template.content.cloneNode(true);
       const photoEl = clone.querySelector('.photo-item');
-      const fileInput = clone.querySelector('.photo-file');
+      const cameraInput = clone.querySelector('.camera-file');
+      const uploadInput = clone.querySelector('.upload-file');
       const imgPreview = clone.querySelector('.photo-preview');
       const removeButton = clone.querySelector('.remove-photo');
+      const markUnusedButton = clone.querySelector('.mark-unused');
+      const unusedStatus = clone.querySelector('.unused-status');
 
-      fileInput.addEventListener('change', () => {
+      function handleFileInput(fileInput) {
         const file = fileInput.files[0];
         if (!file) return;
+
+        if (fileInput === cameraInput) {
+          uploadInput.value = '';
+        } else {
+          cameraInput.value = '';
+        }
+
         const reader = new FileReader();
         reader.onload = event => {
           imgPreview.src = event.target.result;
           imgPreview.style.display = 'block';
+          photoEl.dataset.imageData = event.target.result;
+          photoEl.dataset.fileName = file.name;
         };
         reader.readAsDataURL(file);
+      }
+
+      cameraInput.addEventListener('change', () => handleFileInput(cameraInput));
+      uploadInput.addEventListener('change', () => handleFileInput(uploadInput));
+
+      markUnusedButton.addEventListener('click', () => {
+        const isUnused = photoEl.dataset.unused === 'true';
+        photoEl.dataset.unused = isUnused ? 'false' : 'true';
+        unusedStatus.style.display = isUnused ? 'none' : 'block';
+        markUnusedButton.textContent = isUnused ? 'Mark as Not Needed' : 'Marked Not Needed';
       });
 
       removeButton.addEventListener('click', () => photoEl.remove());
@@ -410,28 +555,32 @@ button {
     }
 
     function generatePreview() {
-      const output = [];
       const value = id => document.getElementById(id).value.trim();
+      const escapeHtml = str => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;').replace(/'/g, '&#39;');
 
-      output.push(`RESTORATION REPORT`);
-      output.push(``);
-      output.push(`Job Number: ${value('jobNumber')}`);
-      output.push(`Technician: ${value('technician')}`);
-      output.push(`Client Name: ${value('clientName')}`);
-      output.push(`Property Address: ${value('address')}`);
-      output.push(`Report Date: ${value('reportDate')}`);
-      output.push(`Arrival Time: ${value('arrivalTime')}`);
-      output.push(`Departure Time: ${value('departureTime')}`);
-      output.push(`Cause of Loss: ${value('causeOfLoss')}`);
-      output.push(``);
-      output.push(`OVERALL NOTES`);
-      output.push(value('overallNotes') || '-');
-      output.push(``);
-      output.push(`ROOMS`);
+      let html = `
+        <h1>Restoration Report</h1>
+        <div class="report-meta">
+          <div><strong>Job Number:</strong> ${escapeHtml(value('jobNumber')) || '-'}</div>
+          <div><strong>Technician:</strong> ${escapeHtml(value('technician')) || '-'}</div>
+          <div><strong>Client Name:</strong> ${escapeHtml(value('clientName')) || '-'}</div>
+          <div><strong>Property Address:</strong> ${escapeHtml(value('address')) || '-'}</div>
+          <div><strong>Report Date:</strong> ${escapeHtml(value('reportDate')) || '-'}</div>
+          <div><strong>Arrival Time:</strong> ${escapeHtml(value('arrivalTime')) || '-'}</div>
+          <div><strong>Departure Time:</strong> ${escapeHtml(value('departureTime')) || '-'}</div>
+          <div><strong>Cause of Loss:</strong> ${escapeHtml(value('causeOfLoss')) || '-'}</div>
+        </div>
+
+        <h2>Overall Notes</h2>
+        <p>${escapeHtml(value('overallNotes')) || '-'}</p>
+
+        <div class="page-break"></div>
+        <h2>Rooms</h2>
+      `;
 
       const rooms = document.querySelectorAll('.room-card');
       if (rooms.length === 0) {
-        output.push(`No rooms added.`);
+        html += '<p>No rooms added.</p>';
       }
 
       rooms.forEach((room, index) => {
@@ -440,14 +589,14 @@ button {
         const notes = room.querySelector('.room-notes').value.trim();
         const photos = room.querySelectorAll('.photo-item');
 
-        output.push(``);
-        output.push(`${index + 1}. ${roomName}`);
-        output.push(`Condition: ${condition || '-'}`);
-        output.push(`Notes: ${notes || '-'}`);
-        output.push(`Photos:`);
+        html += `
+          <h3>${index + 1}. ${escapeHtml(roomName)}</h3>
+          <p><strong>Condition:</strong> ${escapeHtml(condition) || '-'}</p>
+          <p><strong>Notes:</strong> ${escapeHtml(notes) || '-'}</p>
+        `;
 
         if (photos.length === 0) {
-          output.push(`  - No photos added`);
+          html += '<p><em>No photos added for this room.</em></p>';
         }
 
         photos.forEach((photo, photoIndex) => {
@@ -455,20 +604,72 @@ button {
           const location = photo.querySelector('.photo-location').value.trim();
           const reading = photo.querySelector('.photo-reading').value.trim();
           const note = photo.querySelector('.photo-note').value.trim();
-          const fileName = photo.querySelector('.photo-file').files[0]?.name || 'No file selected';
+          const fileName = photo.dataset.fileName || 'No file selected';
+          const imageData = photo.dataset.imageData || '';
+          const isUnused = photo.dataset.unused === 'true';
 
-          output.push(`  ${photoIndex + 1}. ${type}`);
-          output.push(`     Location: ${location || '-'}`);
-          output.push(`     Reading: ${reading || '-'}`);
-          output.push(`     Note: ${note || '-'}`);
-          output.push(`     File: ${fileName}`);
+          html += `
+            <div class="report-photo-item">
+              <p><strong>Photo ${photoIndex + 1}:</strong> ${escapeHtml(type) || '-'}</p>
+              <p><strong>Location:</strong> ${escapeHtml(location) || '-'}</p>
+              <p><strong>Reading:</strong> ${escapeHtml(reading) || '-'}</p>
+              <p><strong>Note:</strong> ${escapeHtml(note) || '-'}</p>
+              <p><strong>File:</strong> ${escapeHtml(fileName)}</p>
+              <p><strong>Status:</strong> ${isUnused ? 'Not needed' : 'Included'}</p>
+              ${imageData ? `<img src="${imageData}" alt="Photo ${photoIndex + 1}" />` : ''}
+            </div>
+          `;
         });
       });
 
-      document.getElementById('reportPreview').textContent = output.join('\n');
+      document.getElementById('reportPreview').innerHTML = html;
+    }
+
+    function printReport() {
+      window.print();
+    }
+
+    function fillExampleData() {
+      document.getElementById('jobNumber').value = 'WDR-1024';
+      document.getElementById('technician').value = 'Ben Hanna';
+      document.getElementById('clientName').value = 'John Smith';
+      document.getElementById('address').value = '12 Example Street, Dubbo NSW 2830';
+      document.getElementById('causeOfLoss').value = 'Burst flexi hose to vanity';
+      document.getElementById('overallNotes').value = 'Water damage inspection completed. Moisture readings taken and equipment placement considered. Further monitoring recommended.';
+      setToday();
+      document.getElementById('arrivalTime').value = '09:10';
+      document.getElementById('departureTime').value = '11:35';
+
+      roomsContainer.innerHTML = '';
+      addRoom();
+      const firstRoom = document.querySelector('.room-card');
+      firstRoom.querySelector('.room-name').value = 'Bathroom';
+      firstRoom.querySelector('.room-name').dispatchEvent(new Event('input'));
+      firstRoom.querySelector('.room-condition').value = 'Wet vanity base and elevated moisture to lower wall lining';
+      firstRoom.querySelector('.room-notes').value = 'Moisture concentrated around vanity and skirting adjacent shower wall.';
+      addPhoto(firstRoom.querySelector('.photo-list'));
+      const firstPhoto = firstRoom.querySelector('.photo-item');
+      firstPhoto.querySelector('.photo-type').value = 'Moisture reading';
+      firstPhoto.querySelector('.photo-location').value = 'South wall beside vanity';
+      firstPhoto.querySelector('.photo-reading').value = '18.7%';
+      firstPhoto.querySelector('.photo-note').value = 'Highest reading noted at skirting level.';
+
+      addRoom();
+      const secondRoom = document.querySelectorAll('.room-card')[1];
+      secondRoom.querySelector('.room-name').value = 'Hallway';
+      secondRoom.querySelector('.room-name').dispatchEvent(new Event('input'));
+      secondRoom.querySelector('.room-condition').value = 'Minor migration to carpet outside bathroom doorway';
+      secondRoom.querySelector('.room-notes').value = 'Edge of carpet affected near transition strip.';
+      addPhoto(secondRoom.querySelector('.photo-list'));
+      const secondPhoto = secondRoom.querySelector('.photo-item');
+      secondPhoto.querySelector('.photo-type').value = 'Damage photo';
+      secondPhoto.querySelector('.photo-location').value = 'Carpet outside bathroom door';
+      secondPhoto.querySelector('.photo-reading').value = '';
+      secondPhoto.querySelector('.photo-note').value = 'Visible moisture migration to hallway carpet.';
     }
 
     setToday();
     addRoom();
-  </script></body>
+  </script>
+</body>
 </html>
